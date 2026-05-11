@@ -292,7 +292,7 @@ describe('cron scheduler launcher resolution', () => {
         }),
     )
     expect(env.ANTHROPIC_BASE_URL).toBe(
-      `http://127.0.0.1:3456/proxy/providers/${provider.id}`,
+      `http://127.0.0.1:${ProviderService.getServerPort()}/proxy/providers/${provider.id}`,
     )
     expect(env.ANTHROPIC_API_KEY).toBe('proxy-managed')
     expect(env.ANTHROPIC_MODEL).toBe('provider-fast')
