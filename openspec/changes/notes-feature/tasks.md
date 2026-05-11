@@ -17,9 +17,9 @@
 
 ## 4. Chat Integration
 
-- [ ] 4.1 Add "Reference Notes" button to ChatInput component
-- [ ] 4.2 Create NoteSelector modal/dropdown component
-- [ ] 4.3 Implement note context injection logic
+- [x] 4.1 Add "Reference Notes" button to ChatInput component
+- [x] 4.2 Create NoteSelector modal/dropdown component
+- [x] 4.3 Implement note context injection logic
 
 ## 5. i18n Support
 
@@ -29,6 +29,6 @@
 ## 6. Verification
 
 - [x] 6.1 Run type checking (tsc --noEmit)
-- [ ] 6.2 Test notes CRUD operations
-- [ ] 6.3 Test notes UI interactions
-- [ ] 6.4 Test notes context integration in chat
+- [x] 6.2 Test notes CRUD operations
+- [x] 6.3 Test notes UI interactions
+- [x] 6.4 Test notes context integration in chat

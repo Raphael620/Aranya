@@ -12,6 +12,12 @@ import {
   useWorkspaceChatContextStore,
   type WorkspaceChatReference,
 } from '../../stores/workspaceChatContextStore'
+import {
+  formatNoteReferencePrompt,
+  useNoteChatContextStore,
+  type NoteChatReference,
+} from '../../stores/noteChatContextStore'
+import { NoteSelector } from './NoteSelector'
 import { sessionsApi, type SessionGitInfo } from '../../api/sessions'
 import { PermissionModeSelector } from '../controls/PermissionModeSelector'
 import { ModelSelector } from '../controls/ModelSelector'
@@ -54,6 +60,7 @@ type ChatInputProps = {
 }
 
 const EMPTY_WORKSPACE_REFERENCES: WorkspaceChatReference[] = []
+const EMPTY_NOTE_REFERENCES: NoteChatReference[] = []
 
 function workspaceReferenceToAttachment(reference: WorkspaceChatReference): Attachment {
   return {
@@ -68,12 +75,21 @@ function workspaceReferenceToAttachment(reference: WorkspaceChatReference): Atta
   }
 }
 
+function noteReferenceToAttachment(reference: NoteChatReference): Attachment {
+  return {
+    id: reference.id,
+    name: reference.title,
+    type: 'file',
+  }
+}
+
 export function ChatInput({ variant = 'default', compact = false }: ChatInputProps) {
   const t = useTranslation()
   const isMobileComposer = useMobileViewport() && !isTauriRuntime()
   const [input, setInput] = useState('')
   const [attachments, setAttachments] = useState<Attachment[]>([])
   const [plusMenuOpen, setPlusMenuOpen] = useState(false)
+  const [noteSelectorOpen, setNoteSelectorOpen] = useState(false)
   const [slashMenuOpen, setSlashMenuOpen] = useState(false)
   const [fileSearchOpen, setFileSearchOpen] = useState(false)
   const [localSlashPanel, setLocalSlashPanel] = useState<LocalSlashCommandName | null>(null)
@@ -118,11 +134,16 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
   const addWorkspaceReference = useWorkspaceChatContextStore((s) => s.addReference)
   const removeWorkspaceReference = useWorkspaceChatContextStore((s) => s.removeReference)
   const clearWorkspaceReferences = useWorkspaceChatContextStore((s) => s.clearReferences)
+  const noteReferences = useNoteChatContextStore(
+    (s) => activeTabId ? s.referencesBySession[activeTabId] ?? EMPTY_NOTE_REFERENCES : EMPTY_NOTE_REFERENCES,
+  )
+  const removeNoteReference = useNoteChatContextStore((s) => s.removeReference)
 
   const isMemberSession = !!memberInfo
   const isActive = chatState !== 'idle'
   const isWorkspaceMissing = activeSession?.workDirExists === false
   const hasWorkspaceReferences = !isMemberSession && workspaceReferences.length > 0
+  const hasNoteReferences = !isMemberSession && noteReferences.length > 0
   const isHeroComposer = variant === 'hero' && !isMemberSession && !compact
   const resolvedWorkDir = activeSession?.workDir || gitInfo?.workDir || undefined
   const showLaunchControls = !isMemberSession && messageCount === 0
@@ -135,13 +156,14 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
   const canSubmit = !isWorkspaceMissing &&
     !launchTransitioning &&
     (!showLaunchControls || launchReady || !!pendingSlashUiAction) &&
-    (input.trim().length > 0 || (!isMemberSession && (attachments.length > 0 || hasWorkspaceReferences)))
+    (input.trim().length > 0 || (!isMemberSession && (attachments.length > 0 || hasWorkspaceReferences || hasNoteReferences)))
   const composerAttachments = useMemo(
     () => [
       ...attachments,
       ...workspaceReferences.map(workspaceReferenceToAttachment),
+      ...noteReferences.map(noteReferenceToAttachment),
     ],
-    [attachments, workspaceReferences],
+    [attachments, workspaceReferences, noteReferences],
   )
   const slashCommandCount = slashCommands.length
 
@@ -461,10 +483,18 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
     const workspaceReferencePrompt = !isMemberSession
       ? formatWorkspaceReferencePrompt(workspaceReferences)
       : ''
-    const contentForModel = [workspaceReferencePrompt, text].filter(Boolean).join('\n\n')
+    const noteReferencePrompt = !isMemberSession
+      ? formatNoteReferencePrompt(noteReferences)
+      : ''
+    const contentForModel = [workspaceReferencePrompt, noteReferencePrompt, text].filter(Boolean).join('\n\n')
+    const totalRefCount = workspaceReferences.length + noteReferences.length
     const displayContent = text || (
-      workspaceReferences.length > 0
-        ? t('chat.workspaceReferencesOnly', { count: workspaceReferences.length })
+      totalRefCount > 0
+        ? (workspaceReferences.length > 0 && noteReferences.length > 0
+          ? t('chat.workspaceReferencesOnly', { count: totalRefCount })
+          : workspaceReferences.length > 0
+            ? t('chat.workspaceReferencesOnly', { count: workspaceReferences.length })
+            : t('chat.noteReferencesOnly', { count: noteReferences.length }))
         : ''
     )
     const uploadAttachmentPayload: AttachmentRef[] = attachments.map((attachment) => ({
@@ -689,7 +719,10 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
 
   const removeAttachment = (id: string) => {
     setAttachments((prev) => prev.filter((attachment) => attachment.id !== id))
-    if (activeTabId) removeWorkspaceReference(activeTabId, id)
+    if (activeTabId) {
+      removeWorkspaceReference(activeTabId, id)
+      removeNoteReference(activeTabId, id)
+    }
   }
 
   const insertSlashCommand = () => {
@@ -930,9 +963,26 @@ export function ChatInput({ variant = 'default', compact = false }: ChatInputPro
                           <span className="w-[24px] text-center text-[18px] font-bold text-[var(--color-text-secondary)]">/</span>
                           <span className="text-sm text-[var(--color-text-primary)]">{slashCommandsLabel}</span>
                         </button>
+                        <button
+                          onClick={() => {
+                            setPlusMenuOpen(false)
+                            setNoteSelectorOpen(true)
+                          }}
+                          className="flex w-full items-center gap-3 px-4 py-2.5 text-left transition-colors hover:bg-[var(--color-surface-hover)]"
+                        >
+                          <span className="material-symbols-outlined text-[18px] text-[var(--color-text-secondary)]">sticky_note_2</span>
+                          <span className="text-sm text-[var(--color-text-primary)]">{t('chat.referenceNotes')}</span>
+                        </button>
                       </div>
                     )}
                   </div>
+
+                  {noteSelectorOpen && activeTabId && (
+                    <NoteSelector
+                      sessionId={activeTabId}
+                      onClose={() => setNoteSelectorOpen(false)}
+                    />
+                  )}
 
                   <PermissionModeSelector compact={useCompactControls} />
                 </>

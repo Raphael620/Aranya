@@ -802,6 +802,8 @@ export const zh: Record<TranslationKey, string> = {
   'chat.addFiles': '添加文件或图片',
   'chat.workspaceReferencesOnly': '已添加 {count} 个工作区引用',
   'chat.slashCommands': '斜杠命令',
+  'chat.referenceNotes': '引用笺',
+  'chat.noteReferencesOnly': '已引用 {count} 条笺',
   'slash.mcp.title': '可用 MCP 工具',
   'slash.mcp.subtitle': '展示当前聊天上下文里的全局 MCP 和当前项目 MCP。',
   'slash.mcp.subtitleWithProject': '当前展示全局 MCP 以及这个项目的 MCP：{path}',

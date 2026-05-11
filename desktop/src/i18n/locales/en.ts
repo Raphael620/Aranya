@@ -800,6 +800,8 @@ export const en = {
   'chat.addFiles': 'Add files or photos',
   'chat.workspaceReferencesOnly': 'Added {count} workspace references',
   'chat.slashCommands': 'Slash commands',
+  'chat.referenceNotes': 'Reference notes',
+  'chat.noteReferencesOnly': 'Referenced {count} note(s)',
   'slash.mcp.title': 'Available MCP tools',
   'slash.mcp.subtitle': 'Global and current-project MCP servers available in this chat context.',
   'slash.mcp.subtitleWithProject': 'Showing global plus project MCP for: {path}',
