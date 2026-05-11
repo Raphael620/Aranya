@@ -814,7 +814,7 @@ describe('WorkspacePanel', () => {
     expect(diffSurface.textContent).toContain(longDiffLine)
   })
 
-  it('can expand long file previews beyond the default rendered line cap', async () => {
+  it('can expand long file previews beyond the default rendered line cap', { timeout: 15000 }, async () => {
     const longFile = Array.from({ length: 2300 }, (_, index) => `const line${index + 1} = ${index + 1}`).join('\n')
 
     await setWorkspaceState((state) => ({

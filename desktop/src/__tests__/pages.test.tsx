@@ -145,7 +145,7 @@ describe('Content-only pages render without errors', () => {
 
     render(<EmptySession />)
 
-    fireEvent.change(screen.getByRole('textbox'), {
+    fireEvent.change(screen.getByPlaceholderText('Ask anything...'), {
       target: { value: '/', selectionStart: 1 },
     })
 
@@ -417,7 +417,7 @@ describe('Content-only pages render without errors', () => {
 
     render(<ActiveSession />)
 
-    const textarea = screen.getByRole('textbox')
+    const textarea = screen.getByPlaceholderText('Ask anything...')
     fireEvent.change(textarea, { target: { value: '/mcp', selectionStart: 4 } })
     fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter' })
 
@@ -488,7 +488,7 @@ describe('Content-only pages render without errors', () => {
 
     render(<ActiveSession />)
 
-    const textarea = screen.getByRole('textbox')
+    const textarea = screen.getByPlaceholderText('Ask anything...')
     fireEvent.change(textarea, { target: { value: '/skills', selectionStart: 7 } })
     fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter' })
 
@@ -545,7 +545,7 @@ describe('Content-only pages render without errors', () => {
 
     render(<ActiveSession />)
 
-    const textarea = screen.getByRole('textbox')
+    const textarea = screen.getByPlaceholderText('Ask anything...')
     fireEvent.change(textarea, { target: { value: '/plugin', selectionStart: 7 } })
     fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter' })
 
@@ -608,7 +608,7 @@ describe('Content-only pages render without errors', () => {
 
     render(<ActiveSession />)
 
-    const textarea = screen.getByRole('textbox')
+    const textarea = screen.getByPlaceholderText('Ask anything...')
     fireEvent.change(textarea, { target: { value: '/help', selectionStart: 5 } })
     fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter' })
 
@@ -666,7 +666,7 @@ describe('Content-only pages render without errors', () => {
     })
 
     const { container } = render(<ActiveSession />)
-    const textarea = screen.getByRole('textbox')
+    const textarea = screen.getByPlaceholderText('Ask anything...')
     fireEvent.change(textarea, { target: { value: '/status', selectionStart: 7 } })
     fireEvent.keyDown(textarea, { key: 'Enter', code: 'Enter' })
 
