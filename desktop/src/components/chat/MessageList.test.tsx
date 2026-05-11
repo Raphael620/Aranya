@@ -37,6 +37,7 @@ function makeSessionState(overrides: Partial<PerSessionState> = {}): PerSessionS
     slashCommands: [],
     agentTaskNotifications: {},
     elapsedTimer: null,
+    personaId: 'araja',
     composerPrefill: null,
     ...overrides,
   }

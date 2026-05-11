@@ -917,6 +917,15 @@ export const en = {
   'streaming.running': 'Running',
   'streaming.working': 'Working',
 
+  // ─── Persona ──────────────────────────────────────
+  'persona.araja.name': 'Araja',
+  'persona.araja.description': 'Professional office assistant — formal, efficient, task-oriented',
+  'persona.arana.name': 'Arana',
+  'persona.arana.description': 'Lively life companion — casual, friendly, expressive',
+  'persona.arama.name': 'Arama',
+  'persona.arama.description': 'Rational mentor — thoughtful, analytical, balanced',
+  'persona.selector.label': 'Persona',
+
   // ─── Permission Dialog ──────────────────────────────────────
   'permission.allowEditFile': 'Allow Claude to {toolName} {fileName}?',
   'permission.allowEditFileGeneric': 'Allow Claude to {toolName} this file?',

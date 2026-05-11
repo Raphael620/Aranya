@@ -125,6 +125,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -186,6 +187,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -265,6 +267,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -320,6 +323,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -390,6 +394,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -445,6 +450,7 @@ describe('ActiveSession task polling', () => {
             slashCommands: [],
             agentTaskNotifications: {},
             elapsedTimer: null,
+          personaId: 'araja',
           },
         },
       })
@@ -498,6 +504,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -557,6 +564,7 @@ describe('ActiveSession task polling', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })

@@ -919,6 +919,15 @@ export const zh: Record<TranslationKey, string> = {
   'streaming.running': '运行中',
   'streaming.working': '工作中',
 
+  // ─── Persona ──────────────────────────────────────
+  'persona.araja.name': '兰拉迦',
+  'persona.araja.description': '专业办公助理 — 正式、高效、任务导向',
+  'persona.arana.name': '兰拉娜',
+  'persona.arana.description': '活泼生活伙伴 — 随和、友好、热情',
+  'persona.arama.name': '兰罗摩',
+  'persona.arama.description': '理性导师 — 深思、分析、平衡',
+  'persona.selector.label': '人格',
+
   // ─── Permission Dialog ──────────────────────────────────────
   'permission.allowEditFile': '允许 Claude {toolName} {fileName}？',
   'permission.allowEditFileGeneric': '允许 Claude {toolName}此文件？',

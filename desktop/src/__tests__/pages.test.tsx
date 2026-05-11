@@ -248,6 +248,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -291,6 +292,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -339,6 +341,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -406,6 +409,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
       sendMessage,
@@ -476,6 +480,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
       sendMessage,
@@ -532,6 +537,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
       sendMessage,
@@ -594,6 +600,7 @@ describe('Content-only pages render without errors', () => {
           ],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
       sendMessage,
@@ -652,6 +659,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
       sendMessage,
@@ -737,6 +745,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -793,6 +802,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -857,6 +867,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -937,6 +948,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1020,6 +1032,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1089,6 +1102,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1186,6 +1200,7 @@ describe('Content-only pages render without errors', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })

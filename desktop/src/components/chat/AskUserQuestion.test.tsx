@@ -68,6 +68,7 @@ describe('AskUserQuestion', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })

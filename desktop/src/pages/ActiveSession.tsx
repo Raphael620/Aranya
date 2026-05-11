@@ -23,6 +23,7 @@ import { ChatInput } from '../components/chat/ChatInput'
 import { InstantAskBox } from '../components/chat/InstantAskBox'
 import { ComputerUsePermissionModal } from '../components/chat/ComputerUsePermissionModal'
 import { SessionTaskBar } from '../components/chat/SessionTaskBar'
+import { PersonaSelector } from '../components/chat/PersonaSelector'
 import { WorkspacePanel } from '../components/workspace/WorkspacePanel'
 import { TeamStatusBar } from '../components/teams/TeamStatusBar'
 import { TerminalSettings } from './TerminalSettings'
@@ -423,6 +424,12 @@ export function ActiveSession() {
 
               <MessageList compact={showWorkspacePanel} />
             </>
+          )}
+
+          {!isMemberSession && (
+            <div className="px-4 py-1 flex items-center">
+              <PersonaSelector />
+            </div>
           )}
 
           {!isMemberSession && <InstantAskBox />}

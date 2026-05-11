@@ -7,6 +7,8 @@ import { useCLITaskStore } from './cliTaskStore'
 import { useSessionRuntimeStore } from './sessionRuntimeStore'
 import { useTabStore } from './tabStore'
 import { randomSpinnerVerb } from '../config/spinnerVerbs'
+import { DEFAULT_PERSONA_ID } from '../config/personas'
+import type { PersonaId } from '../types/persona'
 import { notifyDesktop } from '../lib/desktopNotifications'
 import { deriveSessionTitle, isPlaceholderSessionTitle } from '../lib/sessionTitle'
 import { AGENT_LIFECYCLE_TYPES } from '../types/team'
@@ -58,6 +60,7 @@ export type PerSessionState = {
     attachments?: UIAttachment[]
     nonce: number
   } | null
+  personaId: PersonaId
 }
 
 const DEFAULT_SESSION_STATE: PerSessionState = {
@@ -78,6 +81,7 @@ const DEFAULT_SESSION_STATE: PerSessionState = {
   agentTaskNotifications: {},
   elapsedTimer: null,
   composerPrefill: null,
+  personaId: DEFAULT_PERSONA_ID,
 }
 
 function createDefaultSessionState(): PerSessionState {
@@ -112,6 +116,7 @@ type ChatStore = {
   ) => void
   setSessionRuntime: (sessionId: string, selection: RuntimeSelection) => void
   setSessionPermissionMode: (sessionId: string, mode: PermissionMode) => void
+  setPersona: (sessionId: string, personaId: PersonaId) => void
   stopGeneration: (sessionId: string) => void
   loadHistory: (sessionId: string) => Promise<void>
   reloadHistory: (sessionId: string) => Promise<void>
@@ -478,6 +483,16 @@ export const useChatStore = create<ChatStore>((set, get) => ({
   setSessionPermissionMode: (sessionId, mode) => {
     if (!get().sessions[sessionId]) return
     wsManager.send(sessionId, { type: 'set_permission_mode', mode })
+  },
+
+  setPersona: (sessionId, personaId) => {
+    if (!get().sessions[sessionId]) return
+    set((s) => ({
+      sessions: updateSessionIn(s.sessions, sessionId, (sess) => ({
+        ...sess,
+        personaId,
+      })),
+    }))
   },
 
   stopGeneration: (sessionId) => {

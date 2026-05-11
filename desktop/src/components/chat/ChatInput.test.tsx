@@ -155,6 +155,7 @@ describe('ChatInput file mentions', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -201,6 +202,7 @@ describe('ChatInput file mentions', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -245,6 +247,7 @@ describe('ChatInput file mentions', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -291,6 +294,7 @@ describe('ChatInput file mentions', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -355,6 +359,7 @@ describe('ChatInput file mentions', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })

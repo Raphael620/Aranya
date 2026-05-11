@@ -151,6 +151,7 @@ function makeSession(overrides: Partial<PerSessionState> = {}): PerSessionState 
     slashCommands: [],
     agentTaskNotifications: {},
     elapsedTimer: null,
+          personaId: 'araja',
     ...overrides,
   }
 }
@@ -443,6 +444,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -527,6 +529,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -694,6 +697,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [{ name: 'old-command', description: 'Old command' }],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -851,6 +855,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -914,6 +919,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -945,6 +951,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -999,6 +1006,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1069,6 +1077,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1104,6 +1113,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1149,6 +1159,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1256,6 +1267,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1326,6 +1338,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1600,6 +1613,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1667,6 +1681,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1719,6 +1734,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1751,6 +1767,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1792,6 +1809,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1856,6 +1874,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
@@ -1897,6 +1916,7 @@ describe('chatStore history mapping', () => {
           slashCommands: [],
           agentTaskNotifications: {},
           elapsedTimer: null,
+          personaId: 'araja',
         },
       },
     })
