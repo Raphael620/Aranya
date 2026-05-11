@@ -844,7 +844,7 @@ export class ConversationService {
       'ANTHROPIC_DEFAULT_SONNET_MODEL_SUPPORTED_CAPABILITIES',
       'ANTHROPIC_DEFAULT_OPUS_MODEL',
       'ANTHROPIC_DEFAULT_OPUS_MODEL_SUPPORTED_CAPABILITIES',
-      'CC_HAHA_SEND_DISABLED_THINKING',
+      'ARANYA_SEND_DISABLED_THINKING',
       'CLAUDE_CODE_AUTO_COMPACT_WINDOW',
       'CLAUDE_CODE_MODEL_CONTEXT_WINDOWS',
     ] as const
@@ -890,21 +890,21 @@ export class ConversationService {
       CALLER_DIR: workDir,
       PWD: workDir,
       ...(sdkUrl
-        ? { CC_HAHA_COMPUTER_USE_HOST_BUNDLE_ID: 'com.claude-code-haha.desktop' }
+        ? { ARANYA_COMPUTER_USE_HOST_BUNDLE_ID: 'com.aranya.desktop' }
         : {}),
       ...(desktopServerUrl
-        ? { CC_HAHA_DESKTOP_SERVER_URL: desktopServerUrl }
+        ? { ARANYA_DESKTOP_SERVER_URL: desktopServerUrl }
         : {}),
       ...(sdkUrl
         ? {
-            CC_HAHA_DESKTOP_AWAIT_MCP: '1',
-            CC_HAHA_DESKTOP_AWAIT_MCP_TIMEOUT_MS: '5000',
+            ARANYA_DESKTOP_AWAIT_MCP: '1',
+            ARANYA_DESKTOP_AWAIT_MCP_TIMEOUT_MS: '5000',
           }
         : {}),
       // Tell the CLI entrypoint to skip project .env loading. Provider env
       // should come from Desktop-managed config or inherited launch env, not
       // be reintroduced from the repo's .env file.
-      CC_HAHA_SKIP_DOTENV: '1',
+      ARANYA_SKIP_DOTENV: '1',
       ...(explicitProviderEnv
         ? { CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST: '1' }
         : {}),
@@ -978,7 +978,7 @@ export class ConversationService {
         'ANTHROPIC_DEFAULT_SONNET_MODEL_SUPPORTED_CAPABILITIES',
         'ANTHROPIC_DEFAULT_OPUS_MODEL',
         'ANTHROPIC_DEFAULT_OPUS_MODEL_SUPPORTED_CAPABILITIES',
-        'CC_HAHA_SEND_DISABLED_THINKING',
+        'ARANYA_SEND_DISABLED_THINKING',
         'CLAUDE_CODE_AUTO_COMPACT_WINDOW',
         'CLAUDE_CODE_MODEL_CONTEXT_WINDOWS',
       ].some((key) => typeof env[key] === 'string' && env[key]!.trim().length > 0)

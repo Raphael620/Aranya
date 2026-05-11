@@ -696,7 +696,7 @@ export const zh: Record<TranslationKey, string> = {
   'settings.general.notificationsStatusUnsupported': '当前环境不可用',
   'settings.general.notificationsAuthorize': '授权通知',
   'settings.general.notificationsOpenSettings': '打开系统设置',
-  'settings.general.notificationsTestTitle': 'Claude Code Haha 通知已启用',
+  'settings.general.notificationsTestTitle': 'Aranya 通知已启用',
   'settings.general.notificationsTestBody': '后续授权确认和 Agent 回复完成都会通过系统通知提醒。',
   'settings.general.h5AccessTitle': 'H5 访问',
   'settings.general.h5AccessDescription': 'H5 token 鉴权已临时暂停，浏览器访问会直接放行。只有需要固定外部访问地址时才配置公开 URL。',

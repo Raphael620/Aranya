@@ -284,7 +284,7 @@ export function resolveCronProjectRoot(
   options: CronCliResolutionOptions = {},
 ): string {
   const env = options.env ?? process.env
-  const explicitRoot = env.CC_HAHA_ROOT?.trim()
+  const explicitRoot = env.ARANYA_ROOT?.trim()
   if (explicitRoot && isSourceProjectRoot(path.resolve(explicitRoot))) {
     return path.resolve(explicitRoot)
   }
@@ -665,7 +665,7 @@ export class CronScheduler {
       CLAUDE_CODE_ENTRYPOINT: 'sdk-cli',
       CALLER_DIR: workDir,
       PWD: workDir,
-      CC_HAHA_SKIP_DOTENV: '1',
+      ARANYA_SKIP_DOTENV: '1',
       ...(explicitProviderEnv
         ? {
             CLAUDE_CODE_PROVIDER_MANAGED_BY_HOST: '1',

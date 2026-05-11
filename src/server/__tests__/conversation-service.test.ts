@@ -285,10 +285,10 @@ describe('ConversationService', () => {
       'ws://127.0.0.1:3456/sdk/test-session?token=test-token',
     )) as Record<string, string>
 
-    expect(env.CC_HAHA_COMPUTER_USE_HOST_BUNDLE_ID).toBe(
-      'com.claude-code-haha.desktop',
+    expect(env.ARANYA_COMPUTER_USE_HOST_BUNDLE_ID).toBe(
+      'com.aranya.desktop',
     )
-    expect(env.CC_HAHA_DESKTOP_SERVER_URL).toBe('http://127.0.0.1:3456')
+    expect(env.ARANYA_DESKTOP_SERVER_URL).toBe('http://127.0.0.1:3456')
     expect(env.CLAUDE_CODE_ENABLE_SDK_FILE_CHECKPOINTING).toBe('1')
   })
 
@@ -327,8 +327,8 @@ describe('ConversationService', () => {
       'ws://127.0.0.1:3456/sdk/test-session?token=test-token',
     )) as Record<string, string>
 
-    expect(env.CC_HAHA_DESKTOP_AWAIT_MCP).toBe('1')
-    expect(env.CC_HAHA_DESKTOP_AWAIT_MCP_TIMEOUT_MS).toBe('5000')
+    expect(env.ARANYA_DESKTOP_AWAIT_MCP).toBe('1')
+    expect(env.ARANYA_DESKTOP_AWAIT_MCP_TIMEOUT_MS).toBe('5000')
   })
 
   test('buildSessionCliArgs forwards the selected runtime model and effort to the CLI process', () => {

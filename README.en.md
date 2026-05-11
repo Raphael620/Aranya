@@ -1,23 +1,23 @@
-# Claude Code Haha
+# Aranya
 
 <p align="center">
-  <img src="docs/images/logo-horizontal.png" alt="Claude Code Haha" width="480">
+  <img src="docs/images/logo-horizontal.png" alt="Aranya" width="480">
 </p>
 
 <div align="center">
 
-[![GitHub Stars](https://img.shields.io/github/stars/NanmiCoder/cc-haha?style=social)](https://github.com/NanmiCoder/cc-haha/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/NanmiCoder/cc-haha?style=social)](https://github.com/NanmiCoder/cc-haha/network/members)
-[![GitHub Issues](https://img.shields.io/github/issues/NanmiCoder/cc-haha)](https://github.com/NanmiCoder/cc-haha/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/NanmiCoder/cc-haha)](https://github.com/NanmiCoder/cc-haha/pulls)
-[![License](https://img.shields.io/github/license/NanmiCoder/cc-haha)](https://github.com/NanmiCoder/cc-haha/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/NanmiCoder/aranya?style=social)](https://github.com/NanmiCoder/aranya/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/NanmiCoder/aranya?style=social)](https://github.com/NanmiCoder/aranya/network/members)
+[![GitHub Issues](https://img.shields.io/github/issues/NanmiCoder/aranya)](https://github.com/NanmiCoder/aranya/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/NanmiCoder/aranya)](https://github.com/NanmiCoder/aranya/pulls)
+[![License](https://img.shields.io/github/license/NanmiCoder/aranya)](https://github.com/NanmiCoder/aranya/blob/main/LICENSE)
 [![中文](https://img.shields.io/badge/🇨🇳_中文-Available-green)](README.md)
 [![English](https://img.shields.io/badge/🇺🇸_English-当前-blue)](README.en.md)
 [![Docs](https://img.shields.io/badge/📖_Documentation-Visit-D97757)](https://claudecode-haha.relakkesyang.org)
 
 </div>
 
-A Claude Code build repaired from the source leaked from Anthropic's npm registry on 2026-03-31. Claude Code Haha is now primarily a **desktop Claude Code workspace** for macOS and Windows: sessions, projects, branch / Worktree launch, right-side file changes, code diffs, permission review, provider setup, Computer Use, H5 remote access, IM integration, and scheduled tasks in one app.
+A Claude Code build repaired from the source leaked from Anthropic's npm registry on 2026-03-31. Aranya is now primarily a **desktop Claude Code workspace** for macOS and Windows: sessions, projects, branch / Worktree launch, right-side file changes, code diffs, permission review, provider setup, Computer Use, H5 remote access, IM integration, and scheduled tasks in one app.
 
 <p align="center">
   <a href="#desktop-preview">Desktop Preview</a> · <a href="#install-the-desktop-app">Install</a> · <a href="#desktop-highlights">Highlights</a> · <a href="#sponsorship--partnership">Sponsorship</a> · <a href="#more-documentation">More Docs</a>
@@ -27,10 +27,10 @@ A Claude Code build repaired from the source leaked from Anthropic's npm registr
 
 ## Desktop Preview
 
-The Claude Code Haha desktop app brings sessions, multi-project navigation, branch / Worktree controls, right-side file changes, code diffs, permission review, provider setup, and remote access into one graphical workspace for daily development flows beyond the terminal.
+The Aranya desktop app brings sessions, multi-project navigation, branch / Worktree controls, right-side file changes, code diffs, permission review, provider setup, and remote access into one graphical workspace for daily development flows beyond the terminal.
 
 <p align="center">
-  <a href="https://github.com/NanmiCoder/cc-haha/releases"><img src="https://img.shields.io/badge/⬇_Download_Desktop-macOS_%7C_Windows-D97757?style=for-the-badge" alt="Download Desktop"></a>
+  <a href="https://github.com/NanmiCoder/aranya/releases"><img src="https://img.shields.io/badge/⬇_Download_Desktop-macOS_%7C_Windows-D97757?style=for-the-badge" alt="Download Desktop"></a>
   &nbsp;
   <a href="docs/desktop/04-installation.md"><img src="https://img.shields.io/badge/📖_Install_Guide-Guide-gray?style=for-the-badge" alt="Install Guide"></a>
 </p>
@@ -54,7 +54,7 @@ The Claude Code Haha desktop app brings sessions, multi-project navigation, bran
 
 ## Install the Desktop App
 
-1. Download the macOS or Windows desktop installer from [Releases](https://github.com/NanmiCoder/cc-haha/releases).
+1. Download the macOS or Windows desktop installer from [Releases](https://github.com/NanmiCoder/aranya/releases).
 2. On first launch, configure your model provider, API key, and default model in Settings.
 3. If macOS blocks the app on first open, follow the [desktop installation guide](docs/desktop/04-installation.md) for Gatekeeper steps.
 
@@ -197,13 +197,13 @@ Thanks to the following open-source projects and community practices for referen
 
 ## ⭐ Star History
 
-If this project helps you, please support it with a ⭐ Star so more people can discover Claude Code Haha.
+If this project helps you, please support it with a ⭐ Star so more people can discover Aranya.
 
-<a href="https://www.star-history.com/#NanmiCoder/cc-haha&Date">
+<a href="https://www.star-history.com/#NanmiCoder/aranya&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NanmiCoder/cc-haha&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NanmiCoder/cc-haha&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NanmiCoder/cc-haha&type=Date" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NanmiCoder/aranya&type=Date&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NanmiCoder/aranya&type=Date" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NanmiCoder/aranya&type=Date" />
   </picture>
 </a>
 
