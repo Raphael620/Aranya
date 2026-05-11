@@ -1,0 +1,7 @@
+- [x] 克隆 openhanako 到项目外部目录（仓库不可访问，已跳过）
+- [x] 分析 cc-haha 的 agent 引擎启动流程和对外接口
+- [x] 分析 cc-haha 的桌面通信 API（Tauri 命令）
+- [x] 分析 cc-haha 的权限系统实现
+- [x] 分析 openhanako 的 UI 组件树和布局结构（基于现有 desktop 分析）
+- [x] 对比分析对话区状态管理与 cc-haha 的差异
+- [x] 写审阅报告，总结改造清单
