@@ -37,6 +37,25 @@ export const en = {
   'sidebar.timeGroup.older': 'Older',
   'sidebar.collapse': 'Collapse sidebar',
   'sidebar.expand': 'Expand sidebar',
+  'sidebar.notes': 'Notes',
+
+  // ─── Notes ──────────────────────────────────────
+  'notes.title': 'Notes',
+  'notes.createNew': 'New Note',
+  'notes.edit': 'Edit Note',
+  'notes.delete': 'Delete',
+  'notes.searchPlaceholder': 'Search notes...',
+  'notes.titlePlaceholder': 'Enter title',
+  'notes.content': 'Content',
+  'notes.contentPlaceholder': 'Enter content',
+  'notes.empty': 'No notes yet',
+  'notes.noResults': 'No matching notes',
+  'notes.untitled': 'Untitled',
+  'notes.noContent': 'No content',
+  'notes.confirmDelete': 'Delete this note? This cannot be undone.',
+  'notes.error.titleRequired': 'Title is required',
+  'notes.error.createFailed': 'Failed to create note',
+  'notes.error.updateFailed': 'Failed to update note',
 
   // ─── Title Bar ──────────────────────────────────────
   'titlebar.code': 'Code',

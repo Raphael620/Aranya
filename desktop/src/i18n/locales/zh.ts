@@ -39,6 +39,25 @@ export const zh: Record<TranslationKey, string> = {
   'sidebar.timeGroup.older': '更早',
   'sidebar.collapse': '折叠侧边栏',
   'sidebar.expand': '展开侧边栏',
+  'sidebar.notes': '笺',
+
+  // ─── Notes ──────────────────────────────────────
+  'notes.title': '笺',
+  'notes.createNew': '新建笺',
+  'notes.edit': '编辑笺',
+  'notes.delete': '删除',
+  'notes.searchPlaceholder': '搜索笺...',
+  'notes.titlePlaceholder': '输入标题',
+  'notes.content': '内容',
+  'notes.contentPlaceholder': '输入内容',
+  'notes.empty': '暂无笺',
+  'notes.noResults': '没有匹配的笺',
+  'notes.untitled': '无标题',
+  'notes.noContent': '无内容',
+  'notes.confirmDelete': '确定要删除这个笺吗？此操作不可撤销。',
+  'notes.error.titleRequired': '标题不能为空',
+  'notes.error.createFailed': '创建笺失败',
+  'notes.error.updateFailed': '更新笺失败',
 
   // ─── Title Bar ──────────────────────────────────────
   'titlebar.code': '代码',

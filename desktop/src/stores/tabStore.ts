@@ -5,9 +5,10 @@ const TAB_STORAGE_KEY = 'cc-haha-open-tabs'
 
 export const SETTINGS_TAB_ID = '__settings__'
 export const SCHEDULED_TAB_ID = '__scheduled__'
+export const NOTES_TAB_ID = '__notes__'
 export const TERMINAL_TAB_PREFIX = '__terminal__'
 
-export type TabType = 'session' | 'settings' | 'scheduled' | 'terminal'
+export type TabType = 'session' | 'settings' | 'scheduled' | 'terminal' | 'notes'
 
 export type Tab = {
   sessionId: string
