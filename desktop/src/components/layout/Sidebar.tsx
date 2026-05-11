@@ -151,7 +151,7 @@ export function Sidebar({ isMobile = false, onRequestClose }: SidebarProps) {
               className={`sidebar-copy ${expanded ? 'sidebar-copy--visible' : 'sidebar-copy--hidden'} text-[13px] font-semibold tracking-tight text-[var(--color-text-primary)]`}
               style={{ fontFamily: 'var(--font-headline)' }}
             >
-              Claude Code <span className="text-[var(--color-primary-container)]">Haha</span>
+              Aranya
             </span>
           </div>
           <div className={`flex items-center ${expanded ? 'gap-1.5' : 'flex-col gap-2'}`}>
@@ -193,33 +193,50 @@ export function Sidebar({ isMobile = false, onRequestClose }: SidebarProps) {
       </div>
 
       <div className={`px-3 pb-3 flex flex-col ${expanded ? 'gap-0.5' : 'items-center gap-2'}`}>
-        <NavItem
-          active={false}
-          collapsed={!expanded}
-          label={t('sidebar.newSession')}
-          touchFriendly={isMobile}
-          onClick={async () => {
-            try {
-              const currentTabId = useTabStore.getState().activeTabId
-              const currentSession = currentTabId
-                ? useSessionStore.getState().sessions.find((s) => s.id === currentTabId)
-                : null
-              const workDir = currentSession?.workDir || undefined
-              const sessionId = await useSessionStore.getState().createSession(workDir)
-              useTabStore.getState().openTab(sessionId, t('sidebar.newSession'))
-              useChatStore.getState().connectToSession(sessionId)
-              closeMobileDrawer()
-            } catch (error) {
+        <div className={`flex ${expanded ? 'gap-1' : 'flex-col gap-2'}`}>
+          <NavItem
+            active={false}
+            collapsed={!expanded}
+            label={t('sidebar.newSession')}
+            touchFriendly={isMobile}
+            onClick={async () => {
+              try {
+                const currentTabId = useTabStore.getState().activeTabId
+                const currentSession = currentTabId
+                  ? useSessionStore.getState().sessions.find((s) => s.id === currentTabId)
+                  : null
+                const workDir = currentSession?.workDir || undefined
+                const sessionId = await useSessionStore.getState().createSession(workDir)
+                useTabStore.getState().openTab(sessionId, t('sidebar.newSession'))
+                useChatStore.getState().connectToSession(sessionId)
+                closeMobileDrawer()
+              } catch (error) {
+                addToast({
+                  type: 'error',
+                  message: error instanceof Error ? error.message : t('sidebar.sessionListFailed'),
+                })
+              }
+            }}
+            icon={<PlusIcon />}
+          >
+            {t('sidebar.newSession')}
+          </NavItem>
+          <NavItem
+            active={false}
+            collapsed={!expanded}
+            label={t('sidebar.archive')}
+            touchFriendly={isMobile}
+            onClick={() => {
               addToast({
-                type: 'error',
-                message: error instanceof Error ? error.message : t('sidebar.sessionListFailed'),
+                type: 'info',
+                message: t('sidebar.archiveComingSoon'),
               })
-            }
-          }}
-          icon={<PlusIcon />}
-        >
-          {t('sidebar.newSession')}
-        </NavItem>
+            }}
+            icon={<ArchiveIcon />}
+          >
+            {t('sidebar.archive')}
+          </NavItem>
+        </div>
         {!isMobile && (
           <NavItem
             active={activeTabId === SCHEDULED_TAB_ID}
@@ -239,28 +256,6 @@ export function Sidebar({ isMobile = false, onRequestClose }: SidebarProps) {
 
       {expanded ? (
         <>
-          <div
-            data-testid="sidebar-project-filter-section"
-            className="sidebar-section sidebar-section--visible relative z-20 flex-none px-3 pb-2"
-            style={{ overflow: 'visible' }}
-          >
-            <div className="flex h-9 items-center rounded-[14px] border border-[var(--color-sidebar-search-border)] bg-[var(--color-sidebar-search-bg)] pl-1.5 pr-3 transition-colors focus-within:border-[var(--color-border-focus)]">
-              <ProjectFilter variant="embedded" />
-              <span className="mx-2 h-4 w-px bg-[var(--color-border)]/80" aria-hidden="true" />
-              <span className="pointer-events-none flex shrink-0 items-center text-[var(--color-text-tertiary)]">
-                <SearchIcon />
-              </span>
-              <input
-                id="sidebar-search"
-                type="text"
-                placeholder={t('sidebar.searchPlaceholder')}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="min-w-0 flex-1 bg-transparent pl-2 pr-0 text-[13px] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)] outline-none"
-              />
-            </div>
-          </div>
-
           <div
             data-testid="sidebar-session-list-section"
             className="sidebar-section sidebar-section--visible flex flex-1 min-h-0 flex-col"
@@ -361,6 +356,30 @@ export function Sidebar({ isMobile = false, onRequestClose }: SidebarProps) {
         </>
       ) : (
         <div className="flex-1" aria-hidden="true" />
+      )}
+
+      {expanded && (
+        <div
+          data-testid="sidebar-project-filter-section"
+          className="sidebar-section sidebar-section--visible relative z-20 flex-none px-3 pb-2"
+          style={{ overflow: 'visible' }}
+        >
+          <div className="flex h-9 items-center rounded-[14px] border border-[var(--color-sidebar-search-border)] bg-[var(--color-sidebar-search-bg)] pl-1.5 pr-3 transition-colors focus-within:border-[var(--color-border-focus)]">
+            <ProjectFilter variant="embedded" />
+            <span className="mx-2 h-4 w-px bg-[var(--color-border)]/80" aria-hidden="true" />
+            <span className="pointer-events-none flex shrink-0 items-center text-[var(--color-text-tertiary)]">
+              <SearchIcon />
+            </span>
+            <input
+              id="sidebar-search"
+              type="text"
+              placeholder={t('sidebar.searchPlaceholder')}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="min-w-0 flex-1 bg-transparent pl-2 pr-0 text-[13px] text-[var(--color-text-primary)] placeholder:text-[var(--color-text-tertiary)] outline-none"
+            />
+          </div>
+        </div>
       )}
 
       {!isMobile && (
@@ -517,6 +536,16 @@ function ClockIcon() {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <polyline points="12 6 12 12 16 14" />
+    </svg>
+  )
+}
+
+function ArchiveIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="21 8 21 21 3 21 3 8" />
+      <rect x="1" y="3" width="22" height="5" />
+      <line x1="10" y1="12" x2="14" y2="12" />
     </svg>
   )
 }

@@ -17,6 +17,8 @@ export const en = {
 
   // ─── Sidebar ──────────────────────────────────────
   'sidebar.newSession': 'New session',
+  'sidebar.archive': 'Archive',
+  'sidebar.archiveComingSoon': 'Archive feature coming soon',
   'sidebar.scheduled': 'Scheduled',
   'sidebar.terminal': 'Terminal',
   'sidebar.settings': 'Settings',
