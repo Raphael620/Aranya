@@ -32,34 +32,28 @@ describe('TaskService', () => {
   })
 
   it('should list tasks from JSON files', async () => {
-    const tasksDir = path.join(tmpDir, 'tasks')
-    await fs.mkdir(tasksDir, { recursive: true })
+    const listDir = path.join(tmpDir, 'tasks', 'default')
+    await fs.mkdir(listDir, { recursive: true })
 
-    await fs.writeFile(path.join(tasksDir, 'task-001.json'), JSON.stringify({
+    await fs.writeFile(path.join(listDir, 'task-001.json'), JSON.stringify({
       id: 'task-001',
-      type: 'local_agent',
+      subject: 'code-review',
       status: 'completed',
-      name: 'code-review',
       description: 'Review PR #42',
-      createdAt: Date.now() - 60000,
-      completedAt: Date.now(),
     }))
 
-    await fs.writeFile(path.join(tasksDir, 'task-002.json'), JSON.stringify({
+    await fs.writeFile(path.join(listDir, 'task-002.json'), JSON.stringify({
       id: 'task-002',
-      type: 'in_process_teammate',
-      status: 'running',
-      name: 'frontend-dev',
-      teamName: 'ui-team',
-      createdAt: Date.now(),
+      subject: 'frontend-dev',
+      status: 'pending',
     }))
 
     const svc = new TaskService()
     const tasks = await svc.listTasks()
     expect(tasks.length).toBe(2)
-    // 按 createdAt 倒序
-    expect(tasks[0].id).toBe('task-002')
-    expect(tasks[1].id).toBe('task-001')
+    // 按 ID 升序
+    expect(tasks[0].id).toBe('task-001')
+    expect(tasks[1].id).toBe('task-002')
   })
 
   it('should scan nested team task directories', async () => {
@@ -68,44 +62,42 @@ describe('TaskService', () => {
 
     await fs.writeFile(path.join(teamDir, 'member-1.json'), JSON.stringify({
       id: 'member-1',
-      type: 'in_process_teammate',
+      subject: 'team task',
       status: 'completed',
-      teamName: 'my-team',
     }))
 
     const svc = new TaskService()
     const tasks = await svc.listTasks()
     expect(tasks.length).toBe(1)
-    expect(tasks[0].teamName).toBe('my-team')
+    expect(tasks[0].taskListId).toBe('my-team')
   })
 
   it('should get single task by ID', async () => {
-    const tasksDir = path.join(tmpDir, 'tasks')
-    await fs.mkdir(tasksDir, { recursive: true })
+    const listDir = path.join(tmpDir, 'tasks', 'default')
+    await fs.mkdir(listDir, { recursive: true })
 
-    await fs.writeFile(path.join(tasksDir, 'abc.json'), JSON.stringify({
+    await fs.writeFile(path.join(listDir, 'abc.json'), JSON.stringify({
       id: 'abc',
-      type: 'local_shell',
-      status: 'failed',
-      name: 'build',
+      subject: 'build',
+      status: 'completed',
     }))
 
     const svc = new TaskService()
-    const task = await svc.getTask('abc')
+    const task = await svc.getTask('default', 'abc')
     expect(task).toBeDefined()
-    expect(task!.status).toBe('failed')
+    expect(task!.status).toBe('completed')
   })
 
   it('should return null for unknown task', async () => {
     const svc = new TaskService()
-    const task = await svc.getTask('nonexistent')
+    const task = await svc.getTask('default', 'nonexistent')
     expect(task).toBeNull()
   })
 
   it('should skip invalid JSON files gracefully', async () => {
-    const tasksDir = path.join(tmpDir, 'tasks')
-    await fs.mkdir(tasksDir, { recursive: true })
-    await fs.writeFile(path.join(tasksDir, 'bad.json'), 'not json {{{')
+    const listDir = path.join(tmpDir, 'tasks', 'default')
+    await fs.mkdir(listDir, { recursive: true })
+    await fs.writeFile(path.join(listDir, 'bad.json'), 'not json {{{')
 
     const svc = new TaskService()
     const tasks = await svc.listTasks()
@@ -147,20 +139,20 @@ describe('Tasks API', () => {
   })
 
   it('should return tasks when files exist', async () => {
-    const tasksDir = path.join(tmpDir, 'tasks')
-    await fs.mkdir(tasksDir, { recursive: true })
-    await fs.writeFile(path.join(tasksDir, 'test.json'), JSON.stringify({
-      id: 'test', type: 'local_agent', status: 'completed', name: 'test-task',
+    const listDir = path.join(tmpDir, 'tasks', 'default')
+    await fs.mkdir(listDir, { recursive: true })
+    await fs.writeFile(path.join(listDir, 'test.json'), JSON.stringify({
+      id: 'test', subject: 'test-task', status: 'completed',
     }))
 
     const res = await fetch(`${baseUrl}/api/tasks`)
     const data = await res.json()
     expect(data.tasks.length).toBe(1)
-    expect(data.tasks[0].name).toBe('test-task')
+    expect(data.tasks[0].subject).toBe('test-task')
   })
 
   it('should return 404 for unknown task', async () => {
-    const res = await fetch(`${baseUrl}/api/tasks/nonexistent`)
+    const res = await fetch(`${baseUrl}/api/tasks/lists/default/nonexistent`)
     expect(res.status).toBe(404)
   })
 
