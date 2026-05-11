@@ -778,6 +778,7 @@ export const zh: Record<TranslationKey, string> = {
 
   // ─── Chat Input ──────────────────────────────────────
   'chat.placeholder': '让 Claude 编辑、调试或解释代码...',
+  'chat.instantAskPlaceholder': '快速提问...',
   'chat.placeholderMissing': '此会话指向的工作目录缺失。请新建会话或选择其他项目。',
   'chat.addFiles': '添加文件或图片',
   'chat.workspaceReferencesOnly': '已添加 {count} 个工作区引用',

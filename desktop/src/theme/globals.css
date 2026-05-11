@@ -154,6 +154,14 @@
   --font-body: 'Inter', sans-serif;
   --font-label: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
+
+  /* Aranya Forest Breeze palette */
+  --aranya-bg-soft: #F5F3EF;
+  --aranya-border-soft: #E8E4DD;
+  --aranya-shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --aranya-radius-lg: 16px;
+  --aranya-accent-green: #6B8F5B;
+  --aranya-accent-warm: #D4A574;
 }
 
 /* ─── Semantic Aliases (used by layout & infrastructure components) ── */
@@ -442,6 +450,14 @@
   --color-window-close-hover: #C63B44;
   --color-selection-bg: rgba(255, 181, 159, 0.32);
   --color-selection-fg: #FBE7E1;
+
+  /* Aranya Forest Breeze palette (dark) */
+  --aranya-bg-soft: #1E1D1C;
+  --aranya-border-soft: #2A2929;
+  --aranya-shadow-soft: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --aranya-radius-lg: 16px;
+  --aranya-accent-green: #8BC97A;
+  --aranya-accent-warm: #E8BE8A;
 }
 
 /* ─── Material Symbols ─────────────────────────────────────────── */

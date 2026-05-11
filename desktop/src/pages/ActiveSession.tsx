@@ -20,6 +20,7 @@ import {
 import { useTranslation } from '../i18n'
 import { MessageList } from '../components/chat/MessageList'
 import { ChatInput } from '../components/chat/ChatInput'
+import { InstantAskBox } from '../components/chat/InstantAskBox'
 import { ComputerUsePermissionModal } from '../components/chat/ComputerUsePermissionModal'
 import { SessionTaskBar } from '../components/chat/SessionTaskBar'
 import { WorkspacePanel } from '../components/workspace/WorkspacePanel'
@@ -423,6 +424,8 @@ export function ActiveSession() {
               <MessageList compact={showWorkspacePanel} />
             </>
           )}
+
+          {!isMemberSession && <InstantAskBox />}
 
           {!isMemberSession && <SessionTaskBar />}
 

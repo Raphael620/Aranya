@@ -129,11 +129,11 @@ export function PermissionDialog({ sessionId, requestId, toolName, input, descri
   const allowRawToggle = !preview
 
   return (
-    <div className={`mb-4 overflow-hidden rounded-[var(--radius-lg)] border ${
+    <div className={`mb-4 overflow-hidden rounded-[var(--aranya-radius-lg)] border ${
       isPending
-        ? 'border-[var(--color-warning)] bg-[var(--color-surface-container-lowest)]'
-        : 'border-[var(--color-outline-variant)]/40 bg-[var(--color-surface-container-low)] opacity-70'
-    }`}>
+        ? 'border-[var(--color-warning)] bg-[var(--aranya-bg-soft)]'
+        : 'border-[var(--aranya-border-soft)] bg-[var(--aranya-bg-soft)] opacity-70'
+    }`} style={{ boxShadow: 'var(--aranya-shadow-soft)' }}>
       {/* Header */}
       <div className={`flex items-center gap-3 px-4 py-3 ${
         isPending

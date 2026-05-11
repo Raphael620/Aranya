@@ -776,6 +776,7 @@ export const en = {
 
   // ─── Chat Input ──────────────────────────────────────
   'chat.placeholder': 'Ask Claude to edit, debug or explain...',
+  'chat.instantAskPlaceholder': 'Quick question...',
   'chat.placeholderMissing': 'This session points to a missing workspace. Create a new session or pick another project.',
   'chat.addFiles': 'Add files or photos',
   'chat.workspaceReferencesOnly': 'Added {count} workspace references',
